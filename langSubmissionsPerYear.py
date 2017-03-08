@@ -7,7 +7,7 @@ soup = BeautifulSoup(html, "html.parser")
 table = soup.table
 finalWord = ""
 
-dict = \
+dictionary = \
     {
         'Language': 0,
         'Qualification Round': 1,
@@ -23,21 +23,19 @@ dict = \
         'Remaining': 7,
     }
 
-
-
 csv_file = open('jam_languages_16.csv', 'w')
 
 first_tr = table.find_all('th')
-posDict ={}
+posDict = {}
 for i, hd in enumerate(first_tr):
-    if hd.text in dict:
-        num = dict[hd.text]
+    if hd.text in dictionary:
+        num = dictionary[hd.text]
         if num == 7:
             finalWord = hd.text
         posDict[hd.text] = i
 
 
-for key, num in dict.items():
+for key, num in dictionary.items():
     if num == 7:
         csv_file.write(finalWord)
         break
@@ -91,15 +89,3 @@ for tr in table.find_all('tr')[1:]:
     csv_file.write("\n")
 
     # csv_file.write(td[posDict['Language']].text + ", " + td[posDict['Qualification Round']].text + ", " + td[posDict['Round 1A']].text + ", " + td[posDict['Round 1B']].text + ", " + td[posDict['Round 1C']].text + ", " + td[posDict['Round 2']].text + ", " + td[posDict['Round 3']].text + ", " + td[posDict[finalWord]].text + "\n");
-
-
-
-
-
-    # for j in range(len(td)):
-    #     if td[j].text == "":
-    #         csv_file.write("0,-")
-    #     else:
-    #         csv_file.write(td[j].text + ", ")
-    # csv_file.write("\n")
-
