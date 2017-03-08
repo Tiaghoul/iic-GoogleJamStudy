@@ -1,7 +1,7 @@
 import urllib.request
 from bs4 import BeautifulSoup
 
-url = "https://www.go-hero.net/jam/16/languages"
+url = "https://www.go-hero.net/jam/15/languages"
 html = urllib.request.urlopen(url)
 soup = BeautifulSoup(html, "html.parser")
 table = soup.table
@@ -23,7 +23,7 @@ dictionary = \
         'Remaining': 7,
     }
 
-csv_file = open('jam_languages_16.csv', 'w')
+csv_file = open('jam_languages_15.csv', 'w')
 
 first_tr = table.find_all('th')
 posDict = {}

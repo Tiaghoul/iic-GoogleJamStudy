@@ -2,7 +2,7 @@ import urllib.request
 from bs4 import BeautifulSoup
 
 txt_file = open('allLanguagesUsed.txt', 'w')
-anos = ["08", "09", "10", "11", "12", "13", "14", "15", "16"]
+anos = ["09", "10", "11", "12", "13", "14", "15", "16"]
 allLanguages = []
 
 for ano in anos:

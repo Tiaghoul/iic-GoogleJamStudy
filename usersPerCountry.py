@@ -2,17 +2,18 @@ import urllib.request
 from bs4 import BeautifulSoup
 
 def dealWithHTML(year, lang, html):
-    soup = BeautifulSoup(html, "html5lib")
+    soup = BeautifulSoup(html, "html5lib", fromEncoding='utf-8')
     tables = soup.find_all('table')
     table = tables[1]
 
     for e in table.find_all('br'):
         e.extract()
 
-    print(table.prettify())
+    # print(table.prettify())
 
-    # for a in table.find_all('a'):
-
+    for a in table.find_all('a'):
+        countryName = a.text
+        print(countryName)
 
 
 
@@ -23,11 +24,12 @@ def dealWithHTML(year, lang, html):
 
 allLangs = ['C', 'C++']
 
-# allYears = ["08", "09", "10", "11", "12", "13", "14", "15", "16"]
+# allYears = ["09", "10", "11", "12", "13", "14", "15", "16"]
 allYears = ["15", "16"]
 
 #for every language, for every year, finds the number of contestants of each country
 for lang in allLangs:
+    # print("------ " + lang + " ------")
     for year in allYears:
         url = "https://www.go-hero.net/jam/" + year + "/languages/" + lang
         print(url)
@@ -37,23 +39,11 @@ for lang in allLangs:
             print(lang + "(" + str(year) + ") --> not redirected")
             dealWithHTML(year, lang, html)
         else:
+            #todo
+            # dealWithRedirected(...)
             print(lang + "(" + str(year) + ") --> redirected")
     print("------------------------------------------------------------------------------------------")
 
-
-
-# url = "https://www.go-hero.net/jam/15/languages/C"
-# html = urllib.request.urlopen(url)
-# soup = BeautifulSoup(html, "html5lib")
-#
-# tables = soup.find_all('table')
-# table = tables[1]
-#
-# for e in table.findAll('br'):
-#     e.extract()
-
-
-# print(table.prettify())
 
 # for tr in table.find_all('tr'):
 #     print("tamanho tr = " + str(len(tr)))
