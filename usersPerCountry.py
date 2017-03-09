@@ -1,20 +1,22 @@
+import re
 import urllib.request
 from bs4 import BeautifulSoup
 
+#parses the html, gets second table,
+#and for each <a> tag, prints the country and number of contestants
 def dealWithHTML(year, lang, html):
-    soup = BeautifulSoup(html, "html5lib", fromEncoding='utf-8')
+    soup = BeautifulSoup(html, "html5lib", from_encoding='utf-8')
     tables = soup.find_all('table')
     table = tables[1]
 
     for e in table.find_all('br'):
         e.extract()
 
-    # print(table.prettify())
-
     for a in table.find_all('a'):
         countryName = a.text
-        print(countryName)
-
+        sibling = a.next_sibling
+        numContestants = re.sub("[^0-9]", "", sibling)
+        print(countryName + " " +numContestants)
 
 
 # getting all languages ever used to a list
@@ -43,16 +45,3 @@ for lang in allLangs:
             # dealWithRedirected(...)
             print(lang + "(" + str(year) + ") --> redirected")
     print("------------------------------------------------------------------------------------------")
-
-
-# for tr in table.find_all('tr'):
-#     print("tamanho tr = " + str(len(tr)))
-#     tds = tr.findAll('td')
-#     print("num td's = " + str(len(tds)))
-#     aa = tr.find_all('a')
-#     print(len(aa))
-#     for a in tr.find_all('a'):
-#         print(a.contents)
-
-
-
