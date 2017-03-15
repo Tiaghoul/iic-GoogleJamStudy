@@ -1,14 +1,13 @@
 import urllib.request
+import os
 from bs4 import BeautifulSoup
 
-url = "https://www.go-hero.net/jam/15/languages"
-html = urllib.request.urlopen(url)
-soup = BeautifulSoup(html, "html.parser")
-table = soup.table
-finalWord = ""
 
-dictionary = \
-    {
+finalWord = ""
+directory = os.path.realpath(".")
+# allYears = ["09", "10", "11", "12", "13", "14", "15", "16"]
+allYears = ["15", "16"]
+dictionary = {
         'Language': 0,
         'Qualification Round': 1,
         'Round 1A': 2,
@@ -21,71 +20,78 @@ dictionary = \
         'World Finals': 7,
         'Final Round': 7,
         'Remaining': 7,
-    }
+}
 
-csv_file = open('jam_languages_15.csv', 'w')
+for year in allYears:
+    fileToWrite = directory + "/langsPerYear/langs_year_" + year + ".csv"
+    csv_file = open(fileToWrite, 'w')
+    print("writing to --> " + fileToWrite)
 
-first_tr = table.find_all('th')
-posDict = {}
-for i, hd in enumerate(first_tr):
-    if hd.text in dictionary:
-        num = dictionary[hd.text]
+    url = "https://www.go-hero.net/jam/" + year + "/languages"
+    html = urllib.request.urlopen(url)
+    soup = BeautifulSoup(html, "html.parser")
+    table = soup.table
+
+    first_tr = table.find_all('th')
+    posDict = {}
+    for i, hd in enumerate(first_tr):
+        if hd.text in dictionary:
+            num = dictionary[hd.text]
+            if num == 7:
+                finalWord = hd.text
+            posDict[hd.text] = i
+        else:
+            print(hd.text + "not in dictionary")
+
+    for key, num in dictionary.items():
         if num == 7:
-            finalWord = hd.text
-        posDict[hd.text] = i
-
-
-for key, num in dictionary.items():
-    if num == 7:
-        csv_file.write(finalWord)
-        break
-    else:
-        csv_file.write(key + ", ")
-
-csv_file.write("\n")
-
-for tr in table.find_all('tr')[1:]:
-    td = tr.find_all('td')
-    if td[posDict['Language']].text != "":
-        csv_file.write(td[posDict['Language']].text + ", ")
-    else:
-        csv_file.write("0, ")
-
-    if td[posDict['Qualification Round']].text != "":
-        csv_file.write(td[posDict['Qualification Round']].text + ", ")
-    else:
-        csv_file.write("0, ")
-
-    if td[posDict['Round 1A']].text != "":
-        csv_file.write(td[posDict['Round 1A']].text + ", ")
-    else:
-        csv_file.write("0, ")
-
-    if td[posDict['Round 1B']].text != "":
-        csv_file.write(td[posDict['Round 1B']].text + ", ")
-    else:
-        csv_file.write("0, ")
-
-    if td[posDict['Round 1C']].text != "":
-        csv_file.write(td[posDict['Round 1C']].text + ", ")
-    else:
-        csv_file.write("0, ")
-
-    if td[posDict['Round 2']].text != "":
-        csv_file.write(td[posDict['Round 2']].text + ", ")
-    else:
-        csv_file.write("0, ")
-
-    if td[posDict['Round 3']].text != "":
-        csv_file.write(td[posDict['Round 3']].text + ", ")
-    else:
-        csv_file.write("0, ")
-
-    if td[posDict[finalWord]].text != "":
-        csv_file.write(td[posDict[finalWord]].text)
-    else:
-        csv_file.write("0")
+            csv_file.write(finalWord)
+            break
+        else:
+            csv_file.write(key + ", ")
 
     csv_file.write("\n")
 
-    # csv_file.write(td[posDict['Language']].text + ", " + td[posDict['Qualification Round']].text + ", " + td[posDict['Round 1A']].text + ", " + td[posDict['Round 1B']].text + ", " + td[posDict['Round 1C']].text + ", " + td[posDict['Round 2']].text + ", " + td[posDict['Round 3']].text + ", " + td[posDict[finalWord]].text + "\n");
+    for tr in table.find_all('tr')[1:]:
+        td = tr.find_all('td')
+        if td[posDict['Language']].text != "":
+            csv_file.write(td[posDict['Language']].text + ", ")
+        else:
+            csv_file.write("0, ")
+
+        if td[posDict['Qualification Round']].text != "":
+            csv_file.write(td[posDict['Qualification Round']].text + ", ")
+        else:
+            csv_file.write("0, ")
+
+        if td[posDict['Round 1A']].text != "":
+            csv_file.write(td[posDict['Round 1A']].text + ", ")
+        else:
+            csv_file.write("0, ")
+
+        if td[posDict['Round 1B']].text != "":
+            csv_file.write(td[posDict['Round 1B']].text + ", ")
+        else:
+            csv_file.write("0, ")
+
+        if td[posDict['Round 1C']].text != "":
+            csv_file.write(td[posDict['Round 1C']].text + ", ")
+        else:
+            csv_file.write("0, ")
+
+        if td[posDict['Round 2']].text != "":
+            csv_file.write(td[posDict['Round 2']].text + ", ")
+        else:
+            csv_file.write("0, ")
+
+        if td[posDict['Round 3']].text != "":
+            csv_file.write(td[posDict['Round 3']].text + ", ")
+        else:
+            csv_file.write("0, ")
+
+        if td[posDict[finalWord]].text != "":
+            csv_file.write(td[posDict[finalWord]].text)
+        else:
+            csv_file.write("0")
+
+        csv_file.write("\n")
