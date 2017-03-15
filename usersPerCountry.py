@@ -1,12 +1,19 @@
 import re
 import urllib.request
+import os
 from bs4 import BeautifulSoup
 
 # parses the html, gets second table,
 # and for each <a> tag, prints the country and number of contestants
 
+directory = os.path.realpath(".")
+
 
 def dealWithHTML(year_, lang_, html_):
+    file_to_write = directory + "/usersPerCountryFiles/" + lang +  "_" + year_ + ".csv"
+    csv_file = open(file_to_write, 'w')
+    print("writing to --> " + file_to_write)
+
     soup = BeautifulSoup(html_, "html5lib", from_encoding='utf-8')
     tables = soup.find_all('table')
     table = tables[1]
@@ -18,7 +25,8 @@ def dealWithHTML(year_, lang_, html_):
         country_name = a.text
         sibling = a.next_sibling
         num_contestants = re.sub("[^0-9]", "", sibling)
-        print(country_name + " " + num_contestants)
+        csv_file.write(country_name + ", " + num_contestants + "\n")
+        # print(country_name + " " + num_contestants)
 
 
 # getting all languages ever used to a list
@@ -37,9 +45,9 @@ for lang in allLangs:
     # print("------ " + lang + " ------")
     for year in allYears:
         url = "https://www.go-hero.net/jam/" + year + "/languages/" + lang
-        print(url)
+        # print(url)
         html = urllib.request.urlopen(url)
-        print("Done")
+        # print("Done")
         if url == html.geturl():
             print(lang + "(" + str(year) + ") --> not redirected")
             dealWithHTML(year, lang, html)

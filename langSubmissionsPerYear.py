@@ -5,8 +5,8 @@ from bs4 import BeautifulSoup
 
 finalWord = ""
 directory = os.path.realpath(".")
-# allYears = ["09", "10", "11", "12", "13", "14", "15", "16"]
-allYears = ["15", "16"]
+allYears = ["09", "10", "11", "12", "13", "14", "15", "16"]
+# allYears = ["15", "16"]
 dictionary = {
         'Language': 0,
         'Qualification Round': 1,
