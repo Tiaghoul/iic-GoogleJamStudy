@@ -1,9 +1,17 @@
 import re
 import urllib.request
+import urllib.parse
 import os
 from bs4 import BeautifulSoup
 
 directory = os.path.realpath(".")
+
+# getting all languages ever used to a list
+all_languages_file = open("allLanguagesUsed.txt", "r")
+all_langs = allLanguagesFile.readlines()
+all_langs = [x.strip('\n') for x in all_langs]
+
+all_years = ["09", "10", "11", "12", "13", "14", "15", "16"]
 
 
 def dealWithHTML(year_, lang_, html_):
@@ -28,23 +36,18 @@ def dealWithHTML(year_, lang_, html_):
         num_contestants = re.sub("[^0-9]", "", sibling)
         csv_file.write(country_name + ", " + num_contestants + "\n")
 
+    csv_file.close()
+
 
 def dealWithRedirected(year_, lang_):
+    # when a language is not used in a specific year, creates a blank file
     file_to_write_nothing = directory + "/usersPerCountryFiles/" + lang_ + "_" + year_ + ".csv"
     csv_file = open(file_to_write_nothing, 'w')
     print("writing NOTHING to --> " + file_to_write_nothing)
 
-# getting all languages ever used to a list
-allLanguagesFile = open("allLanguagesUsed.txt", "r")
-allLangs = allLanguagesFile.readlines()
-allLangs = [x.strip('\n') for x in allLangs]
-
-# allLangs = allLangs[83:]
-
-allYears = ["09", "10", "11", "12", "13", "14", "15", "16"]
 
 # for every language, for every year, finds the number of contestants of each country
-for lang in allLangs:
+for lang in all_langs:
     if "/" in lang:
         lang_file = lang.replace("/", "-")
     else:
@@ -56,7 +59,7 @@ for lang in allLangs:
     else:
         lang_url = lang
     print("lang_url = " + lang_url)
-    for year in allYears:
+    for year in all_years:
         url = "https://www.go-hero.net/jam/" + year + "/languages/" + lang_url
         html = urllib.request.urlopen(url)
         if url == html.geturl():
