@@ -39,7 +39,7 @@ allLanguagesFile = open("allLanguagesUsed.txt", "r")
 allLangs = allLanguagesFile.readlines()
 allLangs = [x.strip('\n') for x in allLangs]
 
-allLangs = allLangs[83:]
+# allLangs = allLangs[83:]
 
 allYears = ["09", "10", "11", "12", "13", "14", "15", "16"]
 
