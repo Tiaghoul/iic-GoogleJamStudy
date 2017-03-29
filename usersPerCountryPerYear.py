@@ -1,6 +1,5 @@
 import re
 import urllib.request
-import urllib.parse
 import os
 from bs4 import BeautifulSoup
 
@@ -8,7 +7,7 @@ directory = os.path.realpath(".")
 
 # getting all languages ever used to a list
 all_languages_file = open("allLanguagesUsed.txt", "r")
-all_langs = allLanguagesFile.readlines()
+all_langs = all_languages_file.readlines()
 all_langs = [x.strip('\n') for x in all_langs]
 
 all_years = ["09", "10", "11", "12", "13", "14", "15", "16"]
