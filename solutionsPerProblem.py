@@ -32,11 +32,13 @@ def writeSetsToFile(year_, lang_, dt_tags):
         for li in dd_ul_tag.find_all('li'):
             problem_name = li.a.get_text()
             problem_name = problem_name.replace(" ", "")
+            problem_name = problem_name.replace("/", "-")
             file_name = year_ + "_" + dict_value + "_" + problem_name + ".csv"
             file_to_write = open(directory + file_name, 'a')
 
             list_of_words = li.get_text().split()
 
+            # find the words "small", "large" or "large-1" and "large-2" in the text of the current problem (list item)
             if "small" in list_of_words:
                 small_value = list_of_words[list_of_words.index("small") - 1]
             else:
@@ -58,19 +60,19 @@ def writeSetsToFile(year_, lang_, dt_tags):
                 large_value = "0"
             file_to_write.write(lang_ + ", " + small_value + ", " + large_value + "\n")
             file_to_write.close()
-            print(lang_ + ", " + small_value + ", " + large_value)
+            # print(lang_ + ", " + small_value + ", " + large_value)
 
 # allYears = ["09", "10", "11", "12", "13", "14", "15", "16"]
-all_years = ["13", "15"]
+all_years = ["12", "15"]
 
 # getting all languages ever used to a list
-# allLanguagesFile = open("allLanguagesUsed.txt", "r")
-# all_langs = allLanguagesFile.readlines()
-# all_langs = [x.strip('\n') for x in allLangs]
-all_langs = ["C++", "AutoIt"]
+all_languages_file = open("allLanguagesUsed.txt", "r")
+all_langs = all_languages_file.readlines()
+all_langs = [x.strip('\n') for x in all_langs][:50]
+# all_langs = ["D"]
 
-lang_url = ""
-
+# iterate over all years and all languages used
+# if the language was used in that year, write to each problem file(in which it was used), the number of sets submitted
 for year in all_years:
     for lang in all_langs:
         if "+" not in lang:
@@ -81,6 +83,8 @@ for year in all_years:
         print("Request for: " + url)
         html = urllib.request.urlopen(url)
         print("Request for " + url + " is done!")
+
+        # check if the language was used in that year
         if url == html.geturl():
             soup = BeautifulSoup(html, 'html5lib', from_encoding='utf-8')
             dl_tag = soup.dl
