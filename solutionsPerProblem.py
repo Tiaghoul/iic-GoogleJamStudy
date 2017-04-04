@@ -46,7 +46,8 @@ def writeSetsToFile(year_, lang_, dt_tags):
             if "large" in list_of_words:
                 large_value = list_of_words[list_of_words.index("large") - 1]
             elif "large-1" in list_of_words and "large-2" in list_of_words:
-                # value = max(int(list_of_words[list_of_words.index("large-1") - 1]), int(list_of_words[list_of_words.index("large-2") - 1]))
+                # value = max(int(list_of_words[list_of_words.index("large-1") - 1]),  /
+                # int(list_of_words[list_of_words.index("large-2") - 1]))
                 value = int(list_of_words[list_of_words.index("large-1") - 1]) + int(
                     list_of_words[list_of_words.index("large-2") - 1])
                 large_value = str(value)
@@ -62,14 +63,14 @@ def writeSetsToFile(year_, lang_, dt_tags):
             file_to_write.close()
             # print(lang_ + ", " + small_value + ", " + large_value)
 
-# allYears = ["09", "10", "11", "12", "13", "14", "15", "16"]
-all_years = ["12", "15"]
+all_years = ["09", "10", "11", "12", "13", "14", "15", "16"]
 
 # getting all languages ever used to a list
 all_languages_file = open("allLanguagesUsed.txt", "r")
 all_langs = all_languages_file.readlines()
-all_langs = [x.strip('\n') for x in all_langs][:50]
-# all_langs = ["D"]
+all_langs = [x.strip('\n') for x in all_langs]
+
+lang_url = ""
 
 # iterate over all years and all languages used
 # if the language was used in that year, write to each problem file(in which it was used), the number of sets submitted
@@ -79,10 +80,10 @@ for year in all_years:
             lang_url = urllib.parse.quote(lang)
         else:
             lang_url = lang
-        url = "https://www.go-hero.net/jam/" + year + "/languages/" + lang
-        print("Request for: " + url)
+        url = "https://www.go-hero.net/jam/" + year + "/languages/" + lang_url
+        print("Request for: " + lang)
         html = urllib.request.urlopen(url)
-        print("Request for " + url + " is done!")
+        print("Request for " + lang_url + " is done!")
 
         # check if the language was used in that year
         if url == html.geturl():
