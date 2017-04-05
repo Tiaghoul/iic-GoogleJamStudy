@@ -13,7 +13,7 @@ all_langs = [x.strip('\n') for x in all_langs]
 all_years = ["09", "10", "11", "12", "13", "14", "15", "16"]
 
 
-def deal_with_HTML(year_, lang_, html_):
+def deal_with_html(year_, lang_, html_):
     # creates new file for each lang and year
     # parses the html, gets second table,
     # and for each <a> tag, prints the country and number of contestants
@@ -62,7 +62,7 @@ for lang in all_langs:
         url = "https://www.go-hero.net/jam/" + year + "/languages/" + lang_url
         html = request.urlopen(url)
         if url == html.geturl():
-            deal_with_HTML(year, lang_file, html)
+            deal_with_html(year, lang_file, html)
         else:
             deal_with_redirected(year, lang_file)
     print("------------------------------------------------------------------------------------------")

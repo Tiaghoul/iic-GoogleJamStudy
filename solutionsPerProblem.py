@@ -22,7 +22,7 @@ directory = os.path.realpath(".") + "/setsPerProblem/"
 # existem problemas que tem "large-1" sets e "large-2" sets, adiciono os 2?
 
 
-def writeSetsToFile(year_, lang_, dt_tags):
+def write_sets_to_file(year_, lang_, dt_tags):
     for dt_tag in dt_tags:
         dt_b_tag = dt_tag.b.get_text()
         dict_value = dictionary[dt_b_tag]
@@ -66,7 +66,7 @@ def writeSetsToFile(year_, lang_, dt_tags):
 all_years = ["09", "10", "11", "12", "13", "14", "15", "16"]
 
 # getting all languages ever used to a list
-all_languages_file = open("allLanguagesUsed.txt", "r")
+all_languages_file = open("allLanguagesUsed.txt")
 all_langs = all_languages_file.readlines()
 all_langs = [x.strip('\n') for x in all_langs]
 
@@ -74,7 +74,7 @@ all_langs = [x.strip('\n') for x in all_langs]
 # iterate over all years and all languages used
 # if the language was used in that year, write to each problem file(in which it was used), the number of sets submitted
 for year in all_years:
-    print("ANO -----> " + year)
+    print("ANO -----------------------------> " + year)
     for lang in all_langs:
         if "+" not in lang:
             lang_url = parse.quote(lang)
@@ -90,7 +90,7 @@ for year in all_years:
             soup = BeautifulSoup(html, 'html5lib', from_encoding='utf-8')
             dl_tag = soup.dl
             all_dt_tags = dl_tag.find_all('dt')
-            writeSetsToFile(year, lang, all_dt_tags)
+            write_sets_to_file(year, lang, all_dt_tags)
         else:
             print("lang " + lang + " not used in year " + year)
         print("----------------------------------------------")
