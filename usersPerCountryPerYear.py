@@ -1,5 +1,5 @@
 import re
-import urllib.request
+from urllib import request, parse
 import os
 from bs4 import BeautifulSoup
 
@@ -13,7 +13,7 @@ all_langs = [x.strip('\n') for x in all_langs]
 all_years = ["09", "10", "11", "12", "13", "14", "15", "16"]
 
 
-def dealWithHTML(year_, lang_, html_):
+def deal_with_HTML(year_, lang_, html_):
     # creates new file for each lang and year
     # parses the html, gets second table,
     # and for each <a> tag, prints the country and number of contestants
@@ -38,7 +38,7 @@ def dealWithHTML(year_, lang_, html_):
     csv_file.close()
 
 
-def dealWithRedirected(year_, lang_):
+def deal_with_redirected(year_, lang_):
     # when a language is not used in a specific year, creates a blank file
     file_to_write_nothing = directory + "/usersPerCountryFiles/" + lang_ + "_" + year_ + ".csv"
     csv_file = open(file_to_write_nothing, 'w')
@@ -54,15 +54,15 @@ for lang in all_langs:
 
     # deal with '#' and white spaces, but don't wanna change '+'
     if "+" not in lang:
-        lang_url = urllib.parse.quote(lang)
+        lang_url = parse.quote(lang)
     else:
         lang_url = lang
     print("lang_url = " + lang_url)
     for year in all_years:
         url = "https://www.go-hero.net/jam/" + year + "/languages/" + lang_url
-        html = urllib.request.urlopen(url)
+        html = request.urlopen(url)
         if url == html.geturl():
-            dealWithHTML(year, lang_file, html)
+            deal_with_HTML(year, lang_file, html)
         else:
-            dealWithRedirected(year, lang_file)
+            deal_with_redirected(year, lang_file)
     print("------------------------------------------------------------------------------------------")

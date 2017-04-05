@@ -1,4 +1,4 @@
-import urllib.request
+from urllib import request, parse
 import os
 from bs4 import BeautifulSoup
 
@@ -70,19 +70,19 @@ all_languages_file = open("allLanguagesUsed.txt", "r")
 all_langs = all_languages_file.readlines()
 all_langs = [x.strip('\n') for x in all_langs]
 
-lang_url = ""
 
 # iterate over all years and all languages used
 # if the language was used in that year, write to each problem file(in which it was used), the number of sets submitted
 for year in all_years:
+    print("ANO -----> " + year)
     for lang in all_langs:
         if "+" not in lang:
-            lang_url = urllib.parse.quote(lang)
+            lang_url = parse.quote(lang)
         else:
             lang_url = lang
         url = "https://www.go-hero.net/jam/" + year + "/languages/" + lang_url
         print("Request for: " + lang)
-        html = urllib.request.urlopen(url)
+        html = request.urlopen(url)
         print("Request for " + lang_url + " is done!")
 
         # check if the language was used in that year
