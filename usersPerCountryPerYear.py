@@ -3,7 +3,7 @@ from urllib import request, parse
 import os
 from bs4 import BeautifulSoup
 
-directory = os.path.realpath(".")
+directory = os.path.realpath(".") + "/usersPerCountryFiles/"
 
 # getting all languages ever used to a list
 all_languages_file = open("allLanguagesUsed.txt", "r")
@@ -18,7 +18,7 @@ def deal_with_html(year_, lang_, html_):
     # parses the html, gets second table,
     # and for each <a> tag, prints the country and number of contestants
 
-    file_to_write = directory + "/usersPerCountryFiles/" + lang_ + "_" + year_ + ".csv"
+    file_to_write = directory + lang_ + "_" + year_ + ".csv"
     csv_file = open(file_to_write, 'w')
     print("writing to --> " + file_to_write)
 
@@ -40,7 +40,7 @@ def deal_with_html(year_, lang_, html_):
 
 def deal_with_redirected(year_, lang_):
     # when a language is not used in a specific year, creates a blank file
-    file_to_write_nothing = directory + "/usersPerCountryFiles/" + lang_ + "_" + year_ + ".csv"
+    file_to_write_nothing = directory + lang_ + "_" + year_ + ".csv"
     csv_file = open(file_to_write_nothing, 'w')
     print("writing NOTHING to --> " + file_to_write_nothing)
 
