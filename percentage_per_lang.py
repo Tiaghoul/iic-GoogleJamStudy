@@ -22,22 +22,7 @@ print(number_langs)
 total_percentage = 0.0
 lang_percentage_dict = {}
 #
-# rows = np.where(my_data['lang'] == 'Java')
-#
-# values_per_round = my_data[rows][0][1]
-#
-# array_percentages = []
-# for indexzinhe, val in enumerate(values_per_round):
-#     # print(str(val) + " " + str(sum_by_columns[indexzinhe]))
-#     percen = (val/sum_by_columns[indexzinhe])*100
-#     array_percentages.append(percen)
-#
-# # print(array_percentages)
-#
-# plot_values = [1,2,3,4,5,6,7]
-# plt.bar(plot_values, array_percentages, align='center')
-# plt.xticks(plot_values, x_axis_values)
-# plt.savefig('/home/tiaghoul/PycharmProjects/iic-GoogleJamStudy/images/java_16.png')
+
 
 # add to list of tuples instead of dict
 
