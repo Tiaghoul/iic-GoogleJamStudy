@@ -1,12 +1,7 @@
 import numpy as np
-import pprint
 import operator
-from itertools import islice
 import matplotlib.pyplot as plt
 
-
-def take(n, iterable):
-    return list(islice(iterable, n))
 
 x_axis_values = ['QR', 'R1A', 'R1B', 'R1C', 'R2', 'R3', 'FR']
 
@@ -20,44 +15,39 @@ number_langs = len(my_data)
 print(number_langs)
 
 total_percentage = 0.0
-lang_percentage_dict = {}
-#
 
+list_of_tuples = []
 
 # add to list of tuples instead of dict
 
 for i in range(number_langs):
-    # print(my_data[i][1])
     name_lang = my_data[i][0]
-    # print(name_lang)
     total = 0.0
+
     for index, j in enumerate(my_data[i][1]):
-        # print(j)
-        # print(sum_by_columns[index])
         division = j/sum_by_columns[index]
-        # print("division " + str(index) + " = " + str(division))
         total = total + division
-        # print("---------")
-    # print("total antes = " + str(total))
+
     total = (total/7) * 100
     total_percentage += total
-    lang_percentage_dict[name_lang] = total
-    # print("percentagem = " + str(total))
-    # print("-------------------------------------")
+    list_of_tuples.append((name_lang, total))
 
-# print(lang_percentage_dict)
+sorted_by_second = sorted(list_of_tuples, key=lambda tup: tup[1], reverse=True)
+first_five = sorted_by_second[:5]
 
-sorted_value = sorted(lang_percentage_dict.items(), key=operator.itemgetter(1), reverse=True)
-twenty_langs = list(zip(*sorted_value))[0]
-twenty_percentages = list(zip(*sorted_value))[1]
+remaining_text = "Other " + str(number_langs-5)
 
-print(twenty_langs)
+five_langs = [x[0] for x in first_five]
+five_langs.append(remaining_text)
 
-# pprint.pprint(sorted_value)
-# print("total percentage = " + str(total_percentage))
-# print(lang_percentage_dict)
-# twenty_first = take(20, sorted_value.iteritems())
-# pprint.pprint(twenty_first)
+five_percentages = [x[1] for x in first_five]
+sum_first_five = 100 - sum(x for x in five_percentages)
+five_percentages.append(sum_first_five)
+
+plot_values = list(range(1, 7))
+plt.xticks(plot_values, five_langs)
+plt.bar(plot_values, five_percentages)
+plt.show()
 
 
 

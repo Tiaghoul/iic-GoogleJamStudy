@@ -38,7 +38,6 @@ def make_the_plot(number_langs, sum_col, my_data, year_):
 
 for year in allYears:
     file_name = '/home/tiaghoul/PycharmProjects/iic-GoogleJamStudy/langsPerYear/langs_year_' + year + ".csv"
-    print(file_name)
     data = np.genfromtxt(file_name, comments="?", dtype=[('lang', np.str_, 16), ('values', np.int32, (7,))], skip_header=1, delimiter=',')
     sum_by_columns = np.nansum(data["values"], axis=0)
     n_langs = len(data)
