@@ -30,7 +30,7 @@ def make_plot(lang, my_data):
 def deal_with_year(year):
     file_name = '/home/tiaghoul/PycharmProjects/iic-GoogleJamStudy/langsPerYear/langs_year_' + year + '.csv'
     data = np.genfromtxt(file_name,
-                         comments="?", dtype=[('lang', np.str_, 16), ('values', np.int32, (7,))], skip_header=1,
+                         comments="?", dtype=[('lang', np.str_, 50), ('values', np.int32, (7,))], skip_header=1,
                          delimiter=',')
 
     number_langs = len(data)

@@ -4,7 +4,10 @@ import matplotlib.pyplot as plt
 
 allYears = ["09", "10", "11", "12", "13", "14", "15", "16"]
 
-five_langs = ['C', 'Java', 'Python', 'C#', 'C++']
+all_languages_file = open("allLanguagesUsedPercentages.csv")
+five_langs = all_languages_file.readlines()
+five_langs = [x.split(',')[0] for x in five_langs][:5]
+
 
 other_langs = [100] * 8
 
@@ -16,7 +19,7 @@ for lang in five_langs:
     for index, one_year in enumerate(allYears):
 
         file_name = '/home/tiaghoul/PycharmProjects/iic-GoogleJamStudy/langsPerYear/langs_year_' + one_year + '.csv'
-        my_data = np.genfromtxt(file_name, comments="?", dtype=[('lang', np.str_, 16), ('values', np.int32, (7,))],
+        my_data = np.genfromtxt(file_name, comments="?", dtype=[('lang', np.str_, 50), ('values', np.int32, (7,))],
                                 skip_header=1,
                                 delimiter=',')
 
