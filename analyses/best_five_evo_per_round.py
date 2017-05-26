@@ -7,8 +7,6 @@ x_axis_values = ['QR', 'R1A', 'R1B', 'R1C', 'R2', 'R3', 'FR']
 allYears = ["09", "10", "11", "12", "13", "14", "15", "16"]
 five_langs = ['C', 'Java', 'Python', 'C#', 'C++']
 
-lang_percentage_dict = {}
-
 
 def make_plot(lang, my_data):
     rows = np.where(my_data['lang'] == lang)
