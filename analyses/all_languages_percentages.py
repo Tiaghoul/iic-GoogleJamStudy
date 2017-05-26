@@ -1,14 +1,12 @@
 import numpy as np
 import os
-import operator
-import matplotlib.pyplot as plt
 
 directory = os.path.realpath(".")
 
 
 allYears = ["09", "10", "11", "12", "13", "14", "15", "16"]
 
-all_languages_file = open("allLanguagesUsed.txt")
+all_languages_file = open("../allLanguagesUsed.txt")
 all_langs = all_languages_file.readlines()
 all_langs = [x.strip('\n') for x in all_langs]
 
@@ -37,7 +35,7 @@ for lang in all_langs:
 
 sorted_by_second = sorted(tuples_list, key=lambda tup: tup[1], reverse=True)
 
-file_to_write = directory + "/allLanguagesUsedPercentages.csv"
+file_to_write = directory + "/../allLanguagesUsedPercentages.csv"
 csv_file = open(file_to_write, 'w')
 
 for (x,y) in sorted_by_second:

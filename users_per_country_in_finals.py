@@ -1,5 +1,6 @@
 import numpy as np
 import operator
+
 import matplotlib.pyplot as plt
 
 
@@ -10,11 +11,9 @@ dict_times = {}
 dict_participants = {}
 
 for year in allYears:
-    print(year)
     file_name = '/home/tiaghoul/PycharmProjects/iic-GoogleJamStudy/usersPerYear/users_year_' + year + '.csv'
-    print(file_name)
 
-    my_data = np.genfromtxt(file_name, comments="?", dtype=None, skip_header=1, delimiter=',',)
+    my_data = np.genfromtxt(file_name, comments="?", dtype=None, skip_header=1, delimiter=',')
 
     for row in my_data:
         # print(row)
@@ -30,27 +29,20 @@ for year in allYears:
             else:
                 dict_participants[country] = n_users
 
-
+# escrever cada uma destas listas para um ficheiro
 sorted_times = sorted(dict_times.items(), key=operator.itemgetter(1), reverse=True)
 sorted_participants = sorted(dict_participants.items(), key=operator.itemgetter(1), reverse=True)
 
-print(sorted_times)
-print(sorted_participants)
+print(sorted_times[:8])
+print(sorted_participants[:8])
 
-list_countries_times = [x[0] for x in sorted_times]
-listzinhe = [(x,dict_participants[x]/dict_times[x]) for x in list_countries_times]
-
-sorted_media = sorted(listzinhe, key=operator.itemgetter(1), reverse=True)
-
-print(listzinhe)
-print(sorted_media)
 # list_times = [x[1] for x in sorted_times]
 # list_countries_part = [x[0] for x in sorted_participants]
 # list_part = [x[1] for x in sorted_participants]
-
+#
 # print(len(list_countries_times))
-# plot_values = list(range(1, len(list_countries_times)+1))
-# plt.xticks(plot_values, list_countries_times,  rotation='vertical')
-# plt.bar(plot_values, list_times)
+# plot_values = list(range(1, len(list_countries_part)+1))
+# plt.xticks(plot_values, list_countries_part,  rotation='vertical')
+# plt.bar(plot_values, list_part)
 # plt.show()
 
