@@ -40,7 +40,7 @@
 
 \begin{document}
 
-\title{Comparative study of programming languages used in Google Code Jam}
+\title{A comparative study of programming languages\\used in Google Code Jam}
 
 \author{Tiago Martins\\ \texttt{up201305044@fc.up.pt} \\
         \multicolumn{1}{p{.7\textwidth}}{\centering\emph{
@@ -55,7 +55,7 @@
 
 \begin{abstract}
 
-This article studies and analyses the use of programming languages in the context of competitive programming, using Google Code Jam international competition as the case study. First, we'll calculate the most used languages in this contest and then we'll make a comparison with two other programming languages's rankings, to observe how the top programming languages varies between the different ranking contexts.
+This article studies and analyzes the use of programming languages in the context of competitive programming, using Google Code Jam international competition as the case study. First, we'll calculate the most used languages in this contest and then we'll make a comparison with two other programming languages's rankings, to observe how the top programming languages varies between the different ranking contexts.
 
 It will be also analyzed how the use of the top languages have changed over the years of competition, by observing the percentage of usage in each one of those years.
 
@@ -63,8 +63,6 @@ By using the data from two different years, we studied how the use of the top fi
 
 We'll show which where the most represented countries that ever participated in this competition and make a small comparison with their population number. Finally, we'll present the most successful countries, based on the times they reached the finals and the number contestants that represented each country in said finals.
 
-
-\vspace{5mm}
 \end{abstract}
 
 % ----------------------------------------------------
@@ -74,24 +72,23 @@ We'll show which where the most represented countries that ever participated in 
 % --------------------- INTRODUCTION ---------------------
 
 \section{Introduction}
-The comparison of programming languages is a subject that has always aroused great interest. Which one is the most efficient, which one is the easiest to use, which one is the best overall. These are some questions that have already been studied and investigated.
-% Some previous work made
+The comparison of programming languages is a subject that has always aroused great interest. Which one is the most efficient? Which one is the easiest to use? Which one is the best overall? These are some questions that have already been studied in papers like \cite{open_source_proj} and \cite{rosetta}.
 
-In this project, programming languages are analyzed in context of competitive programming.
-Competitive programming is a sport where participants must write programs capable of solving given problems\cite{wiki_comp}. Programming competitions date back to the early seventies, to events like \textit{ACM-ICPC}\footnote{\url{https://icpc.baylor.edu}}, and the interest in this sport has been growing over the years.
-
-Although there are several popular programming competitions, in this study we chose to analyze the Google Code Jam[GCJ], since it is a well-know contest and there is a lot of data and statistics available about its tournaments.
+% ACP-ICPC por extenso
+In this project, programming languages are analyzed in the context of competitive programming.
+This competition is a sport where participants must write programs capable of solving given problems\cite{wiki_comp}. Programming competitions date back to the early seventies, to events like the ACM International Collegiate Programming Contest (ACM-ICPC)\footnote{\url{https://icpc.baylor.edu}}, and the interest in this sport has been growing over the years.
+Although there are several popular programming competitions, in this study we chose to analyze Google Code Jam (GCJ), since it is a well-know contest and there is a lot of data and statistics available about its tournaments.
 
 GCJ is an international programming competition\cite{gcj} organized by Google.
 The first tournament was made in 2003, and has been held every year since then, with the exception of 2007. The tournament itself is divided in seven rounds, where the competitors must solve several algorithmic problems in a limited amount of time, using any programming language. This last feature is another reason why GCJ was chosen.
 
-% falar de outros artigos sobre lings
 
 The main objective of this report is to analyze the programming languages used in the \textit{GCJ} competition. First, we'll do a ranking of which were the most used languages in the whole contest, and, using the top 5 languages, do a comparison with 2 other programming languages rankings.
 
 The data that we'll analyze is available in the \textbf{go-hero.net} website\footnote{\url{https://www.go-hero.net/jam}}. This website provides the tournament information\cite{go-hero} and statistics from 2008 to 2016. However, the data from the year 2008 was excluded from this study, since the structure of the tournament rounds in that particular year was different from the following years. The rounds from the analyzed years, 2009 to 2016, are divided into \textbf{Qualification Round}, \textbf{Round 1A}, \textbf{Round 1B}, \textbf{Round 1C}, \textbf{Round 2}, \textbf{Round 3} and \textbf{Final Round}.
 
-In this study we'll also investigate how the use of the top 10 programming languages have changed in each one of the analyzed years. In an identical way, we will try to find how the use of the top 5 languages varies through the rounds of a specific year of competition.
+In this study we'll also investigate how the usage of the top programming languages has changed in each one of the analyzed years. In an identical way, we will try to find how the usage of these languages varies through the rounds of a specific competition year.
+
 
 
 
@@ -109,7 +106,7 @@ All the scripts implemented were written in \texttt{Python} and are available in
 
 \subsection{Data Obtained}
 
-The first script implemented had the objective of retrieving the data that is the basis of this study: all the different languages ever used in the competition. The script simply gets all the languages used in each year and groups them together in a list removing the duplicates. In an identical script, instead of programming languages, it is obtained the list of all the countries that have participated in the competition.
+The first script implemented had the objective of retrieving the data that is the basis of this study: all the different languages ever used in the competition. The script simply gets all the languages used in each year and groups them together in a list, removing the duplicates. In an identical script, instead of programming languages, it is obtained the list of all the countries that have participated in the competition.
 
 The next data to be retrieved was the table that contained, for each language, the number of contestants that used it in each round, for a specific year. For each year, the correspondent table is stored in a file with the name \textbf{langs\_year\_XY.csv}, where \textbf{XY} represents the year.
 It was also obtained the data from a similar table, where in this case, it represents the number of contestants from each country in each one of the rounds. As for the programming languages, it is created a file for each year, with the name \textbf{users\_per\_year\_XY.csv}, where \textbf{XY} represents the year.
@@ -124,7 +121,7 @@ Finally, it is obtained, for each year, the number of users that submitted solut
 
 Firstly, it was observed that throughout the 8 years of competition that this study focuses on, 166 different languages were used to correctly answer a problem. However, around 40 of those languages were used not more than 2 times and 120 weren't used more than 20 times.
 
-Looking at the number of participants for each year that used more then 3 languages, there is no fixed pattern or evolution over the years. The peak was in the year 2013, where 166 participants used more then 3 languages, and the number of more different languages used in a year by a single contestant is 23, achieved both in 2015 and 2016.
+Looking at the number of participants for each year that used more than 3 languages, there is no fixed pattern or evolution over the years. The peak was in the year 2013, where 166 contestants answered the problems using at least 3 different languages. The most different languages used in a year by a single contestant was 23, achieved both in 2015 and 2016.
 
 % \begin{table}[H]
 % \centering
@@ -146,14 +143,14 @@ Looking at the number of participants for each year that used more then 3 langua
 
 \subsection{Language utilization}
 
-To find which languages were used to solve more problems over the years, it was calculated the percentage of usage for each language by calculating the mean of the percentages usages of said language in all years.
+To find which languages were used to solve more problems over the years, it was calculated the percentage of usage for each language, by measuring the mean of the usage percentage of said language in each year.
 
 The 10 most used languages in GCJ and the respective percentage are represented in the Table \ref{lang_perc}.
-Looking at the percentages of usage, it's clear that \texttt{C++} language has a commanding lead over the other languages, with a percentage of usage almost 4 times bigger than the second language, \texttt{Java}.
+Looking at the percentages of usage, it's clear that \texttt{C++} language has a commanding lead over the remaining languages, with a percentage of usage almost 4 times bigger than the 2nd most used language, \texttt{Java}.
 
 \begin{table}[H]
 \centering
-\caption{Percentage of the 5 most used languages}
+\caption{Percentage of the 10 most used languages}
 \label{lang_perc}
 \begin{tabular}{c|c}
 \textbf{Language} & \textbf{Usage (\%)} \\ \hline
@@ -170,14 +167,14 @@ Perl              & 0.478
 \end{tabular}
 \end{table}
 
-\texttt{Python} is featured in third place, and is, in addition to \texttt{C++} and \texttt{Java}, the only language with more than 10\% of use.
+\texttt{Python} is featured in 3rd place, and is, in addition to \texttt{C++} and \texttt{Java}, the only language with more than 10\% of overall use.
 
-Although we're analyzing only 10 languages out of a group of 166 languages, the percentage of usage of \texttt{C++} is so overwhelming that even the fourth language, \texttt{C\#}, and fifth language, \texttt{C}, are representing a mere 3 and 2 percent.
+Although we're analyzing only 10 languages out of a group of 166, the percentage of usage of \texttt{C++} is so overwhelming that even the 4th language, \texttt{C\#}, and 5th language, \texttt{C}, are representing a mere 3 and 2 percent.
 
-The last 5 languages from this rank are \texttt{Ruby}, \texttt{Haskell}, \texttt{Pascal}, \texttt{PHP} and \texttt{Perl}. The total percentage of these 5 languages gives a value a little bigger than the percentage of \texttt{C\#}.
+The last 5 languages from this rank are \texttt{Ruby}, \texttt{Haskell}, \texttt{Pascal}, \texttt{PHP} and \texttt{Perl}, respectively. The total percentage of these 5 languages gives a value around the percentage of \texttt{C\#}.
 
 
-When analyzing the top 5 used languages for each one of the years, it always gives the same 5 languages, in exactly the same order as the top 5 most used languages.
+When analyzing the top 5 most used languages for each one of the years, we observed that they are the same in all the years, in exactly the same order as the top 5 most used languages.
 
 
 \subsection{Comparison with other language rankings}
@@ -200,19 +197,19 @@ In order to see if there was a difference between the top 5 most used languages 
 
 The two rankings used in this comparison were:
 \begin{itemize}
-    \item \textit{TIOBE Index}: is an indicator of the popularity of a programming language\cite{tiobe}, where the ratings are based on the number of times a language is searched in popular search engines such as \textit{Google}, \textit{Youtube} and \textit{Wikipedia}. The search query used is \texttt{+"$<$language$>$ programming"} and the ranking is updated once a month;
-    \item \textit{RedMonk Programming Language Rankings}: it's an index updated twice a year that extracts language rankings from \textit{GitHub} and \textit{Stack Overflow} and combines them in a ranking that reflects the correlation between the number of pull requests of a language(\textit{GitHub}) and language discussion(\textit{Stack Overflow})\cite{redmonk}. It's objective is to extracts insights of potential future adoption trends.
+    \item \textit{TIOBE Index}: is an indicator of the popularity of a programming language\cite{tiobe}, where the ratings are based on the number of times a language is searched in popular search engines, such as \textit{Google}, \textit{Youtube} and \textit{Wikipedia}. The search query used is \texttt{+"$<$language$>$ programming"} and the ranking is updated once a month;
+    \item \textit{RedMonk Programming Language Rankings}: it's an index updated twice a year that extracts language rankings from \textit{GitHub} and \textit{Stack Overflow} and combines them in a list that reflects the correlation between the number of pull requests of a language(\textit{GitHub}) and language discussion(\textit{Stack Overflow})\cite{redmonk}. Its objective is to extract insights of potential future adoption trends.
 \end{itemize}
 
 
-Results are displayed in the Table \ref{diff_contexts}. The \textit{TIOBE} ranking contains both the rank and overall percentage for each language, while the \textit{RedMonk} ranking only contains the language's rank.
+Results are displayed in the Table \ref{diff_contexts}. The \textit{TIOBE} ranking contains both the rank and overall percentage for each language, while the \textit{RedMonk} ranking only contains the language's position.
 
 An overview of Table \ref{diff_contexts} gives us the information that all the languages are ranked differently in each one of the contexts.
 
 
-Analyzing \textit{TIOBE's} ranking, we can observe that its top 5 languages are the same as GCJ 5 most used languages, although their rank order is different.
+Analyzing the \textit{TIOBE} ranking, we can observe that its top 5 languages are the same as GCJ 5 most used languages, although their rank order is different.
 
-The \texttt{Java} language, which is the 2nd most used in GCJ, takes the 1st place in the \texttt{TIOBE Rank}, with a percentage of popularity 2 times bigger than the 2nd place \texttt{C}, that is in 5th place in GCJ ranking. Even though \texttt{C++} is the winner in the context of competitive programming, it only comes in 3rd place in the language popularity context.
+The \texttt{Java} language, which is the 2nd most used in GCJ, takes the 1st place in the \texttt{TIOBE Rank}, with a percentage of popularity 2 times bigger than the 2nd place \texttt{C}, that is in 5th place in GCJ ranking. Even though \texttt{C++} is the winner in the context of competitive programming, it only comes in 3rd place in the language popularity ranking.
 
 
 However, when analyzing the \textit{RedMonk} ranking, it's easy to observe that his top 5 languages aren't the same as the top 5 from GCJ. When the context represents the number of pull requests from \textit{GitHub} and the amount of discussion in \textit{Stack Overflow}, the \texttt{C++} language drops even further down to the 5th place (tied with \texttt{C\#}), while both \texttt{Java} and \texttt{Python} surpass it, in 2nd and 3rd places respectively.
@@ -226,30 +223,44 @@ We can conclude that the dominance that \texttt{C++} has in the GCJ ranking is n
 
 In order to find how the usage of each language varied over the years, several graphs were plotted to illustrate the percentage of usage of a group of languages in each one of the 8 years of competition.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=.53, width=\linewidth]{best5_evolution_years_withoutC++.png}
-    \caption{Evolution of top 5 languages over the years}
-    \label{fig:top5_evo}
-\end{figure}
+
 
 When plotting the graph for the top 5 languages, a decision was made to leave \textit{C++} out of the graph, since his high values made the evolution of the other languages barely perceptible. His evolution was nearly linear over the years, having its peak in 2015, with around 68\% of usage.
 
-So, in addition to \texttt{C}, \texttt{C\#}, \texttt{Java} and \texttt{Python}, it was also plotted the total percentage of the remaining languages used in each year, represented by \texttt{Other}.
+However, in addition to \texttt{C}, \texttt{C\#}, \texttt{Java} and \texttt{Python}, it was also plotted the total percentage of the remaining languages used in each year, represented by \texttt{Other}.
 
 
-Analyzing the graph in Figure \ref{fig:top5_evo}, it's possible to observe that the usage of \texttt{C} and \texttt{C\#} has been decreasing over the years, and \texttt{C} even dropped to only 1\% of usage in 2016.
-In the case of \texttt{Java}, although it had several increases over the years, the overall balance is negative, since it had 20\% of usage in 2009 and dropped to 15\% in 2016.
+Analyzing the graph in Figure \ref{fig:top5_evo}, it's possible to observe that the usage of \texttt{C} and \texttt{C\#} has been decreasing over the years, and \texttt{C} even dropped to only 1\% in 2016.
+In the case of \texttt{Java}, although it had several increases over the years, the overall balance is negative, since it had 20\% of use in 2009 and dropped to 15\% in 2016.
 
-Out of the four languages, \texttt{Python} is the one that had the greatest growth, having more and more contestants using it over the years (with only a small exception in 2014). It passed from 7.5\% in 2009 to around 16\% in 2016, being that the only year that it surpassed \texttt{Java}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=.53, width=\linewidth]{best5_evolution_years_withoutC++.png}
+    \caption{Evolution of top 5 languages over the years (without \texttt{C++})}
+    \label{fig:top5_evo}
+\end{figure}
+
+Out of the 4 languages, \texttt{Python} is the one that had the greatest growth, having more and more contestants using it over the years (with only a small exception in 2014). It passed from 7.5\% in 2009 to around 16\% in 2016, being that the only year that it surpassed \texttt{Java}.
 
 Finally, looking at the values for \texttt{Other}, we can conclude that the total use of the remaining languages was almost similar every year, with only a small decrease in the more recent years.
 
 
-The graph displayed in Figure \ref{fig:6_to_10_evo} represents the evolution of usage of the 6th to 10th most used languages in GCJ over the years. The languages are, by order of percentage, \texttt{Ruby}, \texttt{Haskell}, \texttt{Pascal}, \texttt{PHP} and \texttt{Perl}.
+The graph displayed in Figure \ref{fig:6_to_10_evo} represents the evolution of usage of the 6th to 10th most used languages in GCJ over the years.
 
-Although these values represent some of the most used languages from GCJ, the biggest percentage of usage represented in this graph is only 1.4\%, in the year of 2009, by \texttt{Pascal}.
+% So, the languages plotted are, by order of percentage, \texttt{Ruby}, \texttt{Haskell}, \texttt{Pascal}, \texttt{PHP} and \texttt{Perl}.
 
+Although the values in this graph are representing some of the most used languages from GCJ, the biggest percentage of usage displayed is only 1.4\%, in the year of 2009, by \texttt{Pascal}.
+
+
+
+
+The first impression in this graph is that, with only the exception of \texttt{Haskell}, the percentage of use of all the other 4 languages has been decreasing every year. The most affected language was \texttt{Pascal}, which was the most used in 2009, but decreased each year, until it was the least used in 2016, with less than 0.1\% of usage. The \texttt{Perl} language had a similar evolution to the one of \texttt{Pascal}.
+
+The usage of \texttt{PHP} also decreased over time, but not as abruptly as the previous two languages.
+
+Finally, \texttt{Haskell} was the only language that had a similar percentage of usage in 2009 and 2016, having its peak in 2012, with around 1.2\%.
+
+The decreasing values observed in Figure \ref{fig:6_to_10_evo} are the result of the recent increase of \texttt{C++} and \texttt{Python} usage, as previously stated.
 
 \begin{figure}[H]
     \centering
@@ -258,28 +269,26 @@ Although these values represent some of the most used languages from GCJ, the bi
     \label{fig:6_to_10_evo}
 \end{figure}
 
-The first impression in this graph is that, with only the exception of \texttt{Haskell}, the percentage of use of all the other 4 languages has been decreasing every year. The most affected language was \texttt{Pascal}, which was the most used in 2009, but decreased every year, until it was the least used in 2016, with less then 0.1\% of usage. The \texttt{Perl} language had a similar evolution to the one of \texttt{Pascal}.
-
-The usage of \texttt{PHP} also decreased over time, but not as abruptly as the previous two languages.
-
-Finally, \texttt{Haskell} was the only language that had a similar percentage of usage in 2009 and 2016, having it's peak of usage in 2012, with around 1.2\%.
-
-The decreasing values observed in Figure \ref{fig:6_to_10_evo} are the result of the recent increase of \texttt{C++} and \texttt{Python} usage, as previously stated.
-
-
-
 
 \subsection{Language evolution over rounds}
 
-In a similar way to the previous section, we tried to find how the usage of the top 5 languages changed throughout the 7 rounds of 2 particular years of GCJ competition.
+We then tried to find how the usage of the top 5 languages changed throughout the 7 rounds of 2 particular years of GCJ competition.
 
 The graphs in Figures \ref{fig:best5_evo_round_13} and \ref{fig:best5_evo_round_16}, representing years 2013 and 2016 respectively, are, again, excluding the \texttt{C++} language, since, as expected, his high values make the other language's evolution less discernible.
 These graphs are also representing the percentage of usage for the remaining languages used in 2013 and 2016
 
 
-However, analyzing the excluded values of \texttt{C++} for both years, is possible to observe that the use of this language increases as each round passes, but it's in the round \textbf{R2} that it has the biggest growth, passing from around 50\% in the first 4 rounds to more than 70\% in the 3 final rounds, thus demonstrating the dominance previously stated.
+However, analyzing the excluded values of \texttt{C++} for both years, is possible to observe that the use of this language increases as each round passes, but it's in the round \textbf{R2} that it has the biggest growth, passing from around 50\% in the first 4 rounds to more than 70\% in the 3 final rounds, thus demonstrating the dominance previously mentioned.
 
-This percentage increase of \texttt{C++} in the final rounds is an expected result, since it is an advanced phase of the competition and the more experienced contestants tend to use their \textit{go-to} language.
+The \texttt{C++} percentage increase in the final rounds is an expected result, since it is an advanced phase of the competition and the more experienced contestants tend to use their \textit{go-to} language.
+
+
+
+
+Looking at the Figures \ref{fig:best5_evo_round_13} and \ref{fig:best5_evo_round_16}, we can see that \texttt{C}, \texttt{C\#} and also the remaining languages, represented by \texttt{Other}, maintain almost the same values from \textbf{Qualification Round} to \textbf{R2}, where the values start decreasing, until they reach 0\% in the \textbf{Final Round}. The only exception is \texttt{C} in 2013, which is used in the last round, unlike in 2016.
+
+Both in 2013 and 2016, \texttt{Python} also started decreasing after round \textbf{1C}, although it had a small increase in the final of 2016.
+
 
 
 \begin{figure}[H]
@@ -289,18 +298,14 @@ This percentage increase of \texttt{C++} in the final rounds is an expected resu
     \label{fig:best5_evo_round_13}
 \end{figure}
 
-Looking at the Figures \ref{fig:best5_evo_round_13} and \ref{fig:best5_evo_round_16}, we can see that \texttt{C}, \texttt{C\#} and the remaining languages, represented by \texttt{Other}, maintain almost the same values from \textbf{Qualification Round} to \textbf{R2}, where the values start decreasing, until they reach 0\% in the \textbf{Final Round}. The only exception is \texttt{C} in 2013, which is used in the last round, unlike in 2016.
-
-Both in 2013 and 2016, \texttt{Python} also started decreasing after round \textbf{1C}, although it had a small increase in the final of 2016.
-
-The evolution of \texttt{Java} in 2013 was a little bit unusual, because it had several increases and decreases over the rounds, and surprisingly, its peak was in the \textbf{Final Round}.
+The evolution of \texttt{Java} in 2013 was a little bit unusual, since it had several increases and decreases over the rounds, and surprisingly, its peak was in the \textbf{Final Round}.
 
 Focusing only in \texttt{Python} and \texttt{Java} in both graphs, we can observe that, in 2013, \texttt{Java} had a higher percentage of usage than \texttt{Python}, and that in 2016 the opposite happened. This confirms the previous statement about Figure \ref{fig:top5_evo}, where it was said that \texttt{Python} only surpassed \texttt{Java} in 2016.
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.53, width=\linewidth]{best_five_evo_per_round_withoutC++16.png}
-    \caption{Evolution of top 5 languages in 2016}
+    \caption{Evolution of top 5 languages in 2016 (without \texttt{C++})}
     \label{fig:best5_evo_round_16}
 \end{figure}
 
@@ -314,7 +319,7 @@ Analyzing the list that contains all the countries that have ever participated i
 
 \begin{table}[H]
 \centering
-\caption{Overall percentage of top 10 countries}
+\caption{Overall percentage of top 5 countries}
 \label{top10_cont}
 \begin{tabular}{c|c|c}
 \textbf{Country} & \textbf{GCJ (\%)} & \textbf{World (\%)} \\ \hline
@@ -326,12 +331,12 @@ Japan            & 6.499   & 1.7               \\
 \end{tabular}
 \end{table}
 
-The Table \ref{top10_cont} contains the 10 most represented countries in GCJ, and it also contains the percentage of each country in the world population\cite{world_perc}.
+The Table \ref{top10_cont} contains the 5 most represented countries in GCJ, and it also contains the percentage of each country in the world population\cite{world_perc}.
 
 With no surprise, China is the most represented country in GCJ, with a percentage almost similar to its world percentage.
 Russia is a case in point, since it represents 11\% of GCJ contestants while having a much lower 1.9\% of world population. Meanwhile, India, despite having a population 9 times bigger than Russia, it's represented by less contestants, with 9\% in GCJ.
 
-Closing the top 5 are the United States and Japan, respectively, both having a percentage in GCJ a couple times bigger then their respective world percentage.
+Closing the top 5 are the United States and Japan, respectively, both having a percentage in GCJ a couple times bigger than their respective world percentage.
 
 
 \subsection{Most successful countries}
@@ -354,14 +359,16 @@ United States    & 6                       & 9
 \end{tabular}
 \end{table}
 
-These countries are represented in Table \ref{top7_suc}, which also contains the number of contestants, of each country, that participated in the \textbf{Final Round}.
+These countries are represented in Table \ref{top7_suc}, which also contains the number of contestants, of each country that participated in the \textbf{Final Round}.
 
-It's possible to observe that Japan, Poland and Russia are the 3 countries that were represented 8 times in the \textbf{Final Round}, which means, in all the years that this study focuses on. Both Japan and Poland had an identical number of contestants in the final.
+It's possible to observe that Japan, Poland and Russia are the 3 countries that were represented 8 times in the \textbf{Final Round}, which means, in all the years that this study focuses on.
+
+% Both Japan and Poland had an identical number of contestants in the final.
 % Meanwhile, Russia was the country that took more participants to the final, with an astonishing 52 contestants.
 
-Although Russia is the 2nd most represented country in GCJ, only surpassed by China, it took more than the double of contestants to the final that China did, being thus, the most represented country in the finals of GCJ.
+Although Russia is the 2nd most represented country in GCJ, only surpassed by China, it took more than the double of contestants to the final that China did, being thus, the most represented country in the finals of GCJ, with 52 contestants.
 
-Finally, Belarus, Ukraine and the United States reached the final 6 times and were represented by a similar number of contestants. However, it's very unexpected to see Belarus in this top 7 group, since it is a much less represented country in GCJ then the other 6 countries.
+Finally, Belarus, Ukraine and the United States reached the final 6 times and were represented by a similar number of contestants. However, it's very unexpected to see Belarus in this top 7 group, since it is a much less represented country in GCJ than the other 6 countries.
 
 It is also important to mention the absence of India in this group, since it is the 3rd most represented country in the competition.
 
@@ -371,11 +378,11 @@ In this study, we started by stating that 166 different programming languages we
 
 Then, we concluded that, in the context of competitive programming, \texttt{C++} is the language to beat, having a giant lead over the 2nd and 3rd most used languages, \texttt{Java} and \texttt{Python}, respectively. \texttt{C\#} in 4th place, and \texttt{C} in 5th, have a similar percentage of usage, around 3\%. The top 10 is closed by \texttt{Ruby}, \texttt{Haskell}, \texttt{Pascal}, \texttt{PHP} and \texttt{Perl}, being the total percentage of these 5 languages only 3\% of the overall use.
 
-When comparing the top 5 ranking that we obtained with 2 other programming languages indexes, we saw that \texttt{C++} is no longer the leading language, dropping several spots in both rankings. \texttt{Java}, \texttt{Python} and \texttt{C\#} maintained almost the same place in all the rankings, and Java even reached the 1st place in the \textit{TIOBE} ranking, which represents the popularity of programming languages based on the number of searches.
+When comparing the top 5 ranking that we obtained, with 2 other programming languages indexes, we saw that \texttt{C++} is no longer the leading language, dropping several spots in both rankings. \texttt{Java}, \texttt{Python} and \texttt{C\#} maintained almost the same place in all the rankings, and Java even reached the 1st place in the \textit{TIOBE} ranking, which represents the popularity of programming languages based on the number of searches.
 
 It was also concluded that the use of \texttt{Python} has been growing over the years, and that it even exceeded \texttt{Java} in 2016. The widely used \texttt{C++} has had a small growth in recent years. Meanwhile, the values of the already little used \texttt{C}, \texttt{C\#}, \texttt{Pascal}, \texttt{Perl}, \texttt{PHP} and \texttt{Ruby}, have been decreasing to even lower values.
 
-Analyzing the evolution over the rounds we saw that the usage of \texttt{C++} is even bigger in the last 3 rounds and that all the other languages maintain almost the same values throughout the initial rounds, before start decreasing (some of them to 0\%) when the round \textbf{R2} is reached.
+Analyzing the evolution over the rounds we saw that the usage of \texttt{C++} is even bigger in the last 3 rounds of a competition and that all the other languages maintain almost the same values throughout the initial rounds, before starting to decrease (some of them to 0\%) when the round \textbf{R2} is reached.
 
 Finally, it was observed that a highly represented country doesn't necessarily correspond to a successful one. Even though Russia is a much less populated country than India, it has a higher representation in GCJ and it's even the country that took more contestants to the \textbf{Final Round}. We also concluded that Belarus was able to reach the final for 6 times, as many as United States and Ukraine, despite having many fewer contestants in the GCJ than those 2 countries.
 
@@ -385,28 +392,35 @@ It's also worth mentioning that, with the exception of the \texttt{R} language, 
 
 \bibitem{world_perc}
 \raggedright
-\texttt{Countries in the world by population (2017)}, 2017, \url{http://www.worldometers.info/world-population/population-by-country/}
+Countries in the world by population (2017), 2017, \url{http://www.worldometers.info/world-population/population-by-country/}
 
 \bibitem{wiki_comp}
-\raggedright \texttt{Competitive Programming}, \url{https://en.wikipedia.org/wiki/Competitive_programming}
+\raggedright Competitive Programming, \url{https://en.wikipedia.org/wiki/Competitive_programming}
 
 
 \bibitem{web_sc}
-\raggedright \texttt{What is Web Scraping ?}, \url{https://www.webharvy.com/articles/what-is-web-scraping.html}
+\raggedright What is Web Scraping?, \texttt{\url{https://www.webharvy.com/articles/what-is-web-scraping.html}}
 
 \bibitem{go-hero}
-\raggedright \texttt{Code Jam Language Stats}, \url{https://www.go-hero.net/jam/16/}
+\raggedright Code Jam Language Stats, \url{https://www.go-hero.net/jam/}
 
 \bibitem{gcj}
-\raggedright \texttt{What is Code Jam?}, \url{https://code.google.com/codejam/about}
+\raggedright What is Code Jam?, \url{https://code.google.com/codejam/about}
 
 \bibitem{redmonk}
 \raggedright
-O'Grady S.: \texttt{The RedMonk Programming Language Rankings: January 2017}, (2017), \url{http://redmonk.com/sogrady/2017/03/17/language-rankings-1-17}
+O'Grady S., (2017). The RedMonk Programming Language Rankings: January 2017, \url{http://redmonk.com/sogrady/2017/03/17/language-rankings-1-17}
 
 
 \bibitem{tiobe}
-\raggedright \texttt{TIOBE Index for June 2017}, 2017, \url{https://www.tiobe.com/tiobe-index/}
+\raggedright TIOBE Index for June 2017, 2017, \url{https://www.tiobe.com/tiobe-index/}
+
+\bibitem{open_source_proj}
+\raggedright Bissyandé, T., et al., (2013). Popularity, Interoperability, and Impact of Programming Languages
+in 100,000 Open Source Projects. In Proceedings of the 37th Annual Computer Software and Applications Conference (COMPSAC '13), IEEE Computer Society Washington, DC, USA, 2013, 303-312.
+
+\bibitem{rosetta}
+\raggedright Nanz, S., Furia, C., (2015). A Comparative Study of Programming Languages in Rosetta Code,. In Proceedings of the 37th International Conference on Software Engineering - Volume 1 (ICSE '15), IEEE Press Piscataway, NJ, USA  2015, 778-788.
 
 \end{thebibliography}
 
