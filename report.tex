@@ -74,7 +74,7 @@ We'll show which where the most represented countries that ever participated in 
 \section{Introduction}
 The comparison of programming languages is a subject that has always aroused great interest. Which one is the most efficient? Which one is the easiest to use? Which one is the best overall? These are some questions that have already been studied in papers like \cite{open_source_proj} and \cite{rosetta}.
 
-% ACP-ICPC por extenso
+
 In this project, programming languages are analyzed in the context of competitive programming.
 This competition is a sport where participants must write programs capable of solving given problems\cite{wiki_comp}. Programming competitions date back to the early seventies, to events like the ACM International Collegiate Programming Contest (ACM-ICPC)\footnote{\url{https://icpc.baylor.edu}}, and the interest in this sport has been growing over the years.
 Although there are several popular programming competitions, in this study we chose to analyze Google Code Jam (GCJ), since it is a well-know contest and there is a lot of data and statistics available about its tournaments.
@@ -102,7 +102,7 @@ Several scripts were implemented to do the web scraping from the \textbf{go-hero
 
 All the scripts implemented were written in \texttt{Python} and are available in a \textit{GitHub} repository\footnote{\url{https://github.com/Tiaghoul/iic-GoogleJamStudy}} created for this study. In order to obtain the html from each page, it is used the \textit{urllib}\footnote{\url{https://docs.python.org/3/library/urllib.html}} package, that can retrieve it with the \textit{request} module. After obtaining the html, it is used the \textit{BeautifulSoup}\footnote{\url{https://www.crummy.com/software/BeautifulSoup/bs4/doc}} library to navigate through the html tree and get the desired data from it. All the information is stored in several \textit{csv} files, which are then analyzed with the help of the \textit{NumPy}\footnote{\url{http://www.numpy.org/}} package to load and manipulate the data from them. To plot the graphs, it is used the \textit{Pyplot} module from the \textit{matplotlib}\footnote{\url{https://matplotlib.org/index.html}} library.
 
-% \href{https://github.com/Tiaghoul/iic-GoogleJamStudy}{repository}
+
 
 \subsection{Data Obtained}
 
@@ -111,7 +111,6 @@ The first script implemented had the objective of retrieving the data that is th
 The next data to be retrieved was the table that contained, for each language, the number of contestants that used it in each round, for a specific year. For each year, the correspondent table is stored in a file with the name \textbf{langs\_year\_XY.csv}, where \textbf{XY} represents the year.
 It was also obtained the data from a similar table, where in this case, it represents the number of contestants from each country in each one of the rounds. As for the programming languages, it is created a file for each year, with the name \textbf{users\_per\_year\_XY.csv}, where \textbf{XY} represents the year.
 
-% Another script was written, where for each combination of language and year, it retrieved the number of contestants from each country that used language \textit{A} in year \textit{N}, storing each of the combinations in a file of the format \textbf{A\_N.csv}. If a language was not used in a given year, the file is still created, but left blank.
 
 Finally, it is obtained, for each year, the number of users that submitted solutions using at least 3 different programming languages and also the number of languages that the contestant with more languages submitted used.
 
@@ -123,22 +122,6 @@ Firstly, it was observed that throughout the 8 years of competition that this st
 
 Looking at the number of participants for each year that used more than 3 languages, there is no fixed pattern or evolution over the years. The peak was in the year 2013, where 166 contestants answered the problems using at least 3 different languages. The most different languages used in a year by a single contestant was 23, achieved both in 2015 and 2016.
 
-% \begin{table}[H]
-% \centering
-% \caption{More languages used in each year}
-% \label{multi_langs}
-% \begin{tabular}{c|c}
-% \textbf{Year} & \textbf{More languages used} \\ \hline
-% 2009          & 14                           \\
-% 2010          & 10                           \\
-% 2011          & 12                           \\
-% 2012          & 16                           \\
-% 2013          & 18                           \\
-% 2014          & 17                           \\
-% 2015          & 23                           \\
-% 2016          & 23
-% \end{tabular}
-% \end{table}
 
 
 \subsection{Language utilization}
@@ -247,7 +230,6 @@ Finally, looking at the values for \texttt{Other}, we can conclude that the tota
 
 The graph displayed in Figure \ref{fig:6_to_10_evo} represents the evolution of usage of the 6th to 10th most used languages in GCJ over the years.
 
-% So, the languages plotted are, by order of percentage, \texttt{Ruby}, \texttt{Haskell}, \texttt{Pascal}, \texttt{PHP} and \texttt{Perl}.
 
 Although the values in this graph are representing some of the most used languages from GCJ, the biggest percentage of usage displayed is only 1.4\%, in the year of 2009, by \texttt{Pascal}.
 
@@ -281,8 +263,6 @@ These graphs are also representing the percentage of usage for the remaining lan
 However, analyzing the excluded values of \texttt{C++} for both years, is possible to observe that the use of this language increases as each round passes, but it's in the round \textbf{R2} that it has the biggest growth, passing from around 50\% in the first 4 rounds to more than 70\% in the 3 final rounds, thus demonstrating the dominance previously mentioned.
 
 The \texttt{C++} percentage increase in the final rounds is an expected result, since it is an advanced phase of the competition and the more experienced contestants tend to use their \textit{go-to} language.
-
-
 
 
 Looking at the Figures \ref{fig:best5_evo_round_13} and \ref{fig:best5_evo_round_16}, we can see that \texttt{C}, \texttt{C\#} and also the remaining languages, represented by \texttt{Other}, maintain almost the same values from \textbf{Qualification Round} to \textbf{R2}, where the values start decreasing, until they reach 0\% in the \textbf{Final Round}. The only exception is \texttt{C} in 2013, which is used in the last round, unlike in 2016.
@@ -363,9 +343,6 @@ These countries are represented in Table \ref{top7_suc}, which also contains the
 
 It's possible to observe that Japan, Poland and Russia are the 3 countries that were represented 8 times in the \textbf{Final Round}, which means, in all the years that this study focuses on.
 
-% Both Japan and Poland had an identical number of contestants in the final.
-% Meanwhile, Russia was the country that took more participants to the final, with an astonishing 52 contestants.
-
 Although Russia is the 2nd most represented country in GCJ, only surpassed by China, it took more than the double of contestants to the final that China did, being thus, the most represented country in the finals of GCJ, with 52 contestants.
 
 Finally, Belarus, Ukraine and the United States reached the final 6 times and were represented by a similar number of contestants. However, it's very unexpected to see Belarus in this top 7 group, since it is a much less represented country in GCJ than the other 6 countries.
@@ -428,9 +405,3 @@ in 100,000 Open Source Projects. In Proceedings of the 37th Annual Computer Soft
 
 
 \end{document}
-
-
-% falta falar na introdução sobre outros papers
-% escrever os números por extenso?
-% footnotes ficam derp
-%
